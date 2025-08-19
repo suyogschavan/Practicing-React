@@ -1,0 +1,31 @@
+.label1{
+    /* background-color: red; */
+    padding: 20px 20px;
+}
+.country-container{
+    display: flex;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+.submit-btn{
+    background-color: green;
+    color: white;
+    padding: 12px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    background-color: rgb(2, 107, 2);
+  }
+.dropdown{
+    border-radius: 10px;
+    font-size: 15px;
+    border-width: 1px;
+    flex-grow: 1;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+}

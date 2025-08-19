@@ -1,0 +1,13 @@
+.date-span{
+    padding: 10px 10px;
+    background-color: yellow;
+    margin: 10px 10px;
+}
+.holiday-div{
+    padding: 5px 5px;
+}
+.holiday-div:hover{
+    padding: 5px 5px;
+    font-size: xx-large;
+}
+
