@@ -4,15 +4,22 @@ import "./HomePage.css";
 
 export function HomePage() {
   const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     fetch("https://fakestoreapi.in/api/products")
       .then((res) => res.json())
       .then((res) => setProducts(res.products));
+
+    fetch("https://fakestoreapi.com/carts/1")
+      .then((response) => response.json())
+      .then((data) => {
+        setCartItems(data.products);
+      });
   }, []);
   // console.log(products)
   return (
     <>
-      <Header />
+      <Header cartItems={cartItems}/>
       <title>Ecommerce Project</title>
 
       <div className="home-page">
@@ -34,16 +41,18 @@ export function HomePage() {
                     // src={`images/ratings/rating-${
                     //   product.rating.stars * 10
                     // }.png`}
-                    src={'popular' in product  ? "images/ratings/rating-50.png" : "images/ratings/rating-30.png"}
+                    src={
+                      "popular" in product
+                        ? "images/ratings/rating-50.png"
+                        : "images/ratings/rating-30.png"
+                    }
                   />
                   <div className="product-rating-count link-primary">
-                    {Math.floor(Math.random()*100)}
+                    {Math.floor(Math.random() * 100)}
                   </div>
                 </div>
 
-                <div className="product-price">
-                  ${product.price}
-                </div>
+                <div className="product-price">${product.price}</div>
 
                 <div className="product-quantity-container">
                   <select>
