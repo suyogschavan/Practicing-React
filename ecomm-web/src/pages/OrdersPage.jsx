@@ -1,9 +1,11 @@
 // import './'
+import { Header } from "../components/Header";
 import "./OrdersPage.css";
 export function OrdersPage() {
   return (
     <>
     <title>Your Orders</title>
+    <Header />
 
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
