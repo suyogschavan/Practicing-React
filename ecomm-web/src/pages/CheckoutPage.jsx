@@ -1,6 +1,14 @@
+import {useState, useEffect} from 'react';
 import "./checkout-header.css";
 import "./CheckoutPage.css";
 export function CheckoutPage({ cartItems }) {
+  const [deliveryOptions, setDeliveryOptions] = useState([]);
+
+  useEffect(()=>{
+    fetch('')
+    .then((res)=> {return res.json()})
+    .then((data)=>console.log(data));
+  }, [])
   return (
     <>
       <title>Checkout</title>
