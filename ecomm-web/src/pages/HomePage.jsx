@@ -8,7 +8,7 @@ export function HomePage({cartItems}) {
   useEffect(() => {
     fetch("https://fakestoreapi.in/api/products")
       .then((res) => res.json())
-      .then((res) => setProducts(res.products));
+      .then((res) => {setProducts(res.products)});
   }, []);
   return (
     <>
