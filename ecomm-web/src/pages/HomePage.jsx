@@ -2,21 +2,14 @@ import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import "./HomePage.css";
 
-export function HomePage() {
+export function HomePage({cartItems}) {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  // const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     fetch("https://fakestoreapi.in/api/products")
       .then((res) => res.json())
       .then((res) => setProducts(res.products));
-
-    fetch("https://fakestoreapi.com/carts/1")
-      .then((response) => response.json())
-      .then((data) => {
-        setCartItems(data.products);
-      });
   }, []);
-  // console.log(products)
   return (
     <>
       <Header cartItems={cartItems}/>
