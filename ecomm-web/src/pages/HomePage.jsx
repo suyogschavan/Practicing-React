@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import "./HomePage.css";
+import { formatMoney } from "../utils/formatMoney";
 
 export function HomePage({cartItems}) {
   const [products, setProducts] = useState([]);
   // const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
-    fetch("https://fakestoreapi.in/api/products")
+    fetch("http://localhost:3000/api/products")
       .then((res) => res.json())
-      .then((res) => {setProducts(res.products)});
+      .then((res) => {setProducts(res)});
   }, []);
   return (
     <>
@@ -25,27 +26,27 @@ export function HomePage({cartItems}) {
                 </div>
 
                 <div className="product-name limit-text-to-2-lines">
-                  {product.title}
+                  {product.name}
                 </div>
 
                 <div className="product-rating-container">
                   <img
                     className="product-rating-stars"
-                    // src={`images/ratings/rating-${
-                    //   product.rating.stars * 10
-                    // }.png`}
-                    src={
-                      "popular" in product
-                        ? "images/ratings/rating-50.png"
-                        : "images/ratings/rating-30.png"
-                    }
+                    src={`images/ratings/rating-${
+                      product.rating.stars * 10
+                    }.png`}
+                    // src={
+                    //   "popular" in product
+                    //     ? "images/ratings/rating-50.png"
+                    //     : "images/ratings/rating-30.png"
+                    // }
                   />
                   <div className="product-rating-count link-primary">
-                    {Math.floor(Math.random() * 100)}
+                    {product.rating.count}
                   </div>
                 </div>
 
-                <div className="product-price">${product.price}</div>
+                <div className="product-price">{formatMoney(product.priceCents)}</div>
 
                 <div className="product-quantity-container">
                   <select>

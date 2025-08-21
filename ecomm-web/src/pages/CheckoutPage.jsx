@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import "./checkout-header.css";
 import "./CheckoutPage.css";
+import { formatMoney } from '../utils/formatMoney';
 export function CheckoutPage({ cartItems }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
 
@@ -51,14 +52,14 @@ export function CheckoutPage({ cartItems }) {
                     <div className="cart-item-details-grid">
                       <img
                         className="product-image"
-                        src={item.thumbnail}
+                        src={item.product.image}
                       />
 
                       <div className="cart-item-details">
                         <div className="product-name">
-                          {item.title}
+                          {item.product.name}
                         </div>
-                        <div className="product-price">${item.price}</div>
+                        <div className="product-price">{formatMoney(item.product.priceCents)}</div>
                         <div className="product-quantity">
                           <span>
                             Quantity: <span className="quantity-label">{item.quantity}</span>

@@ -11,10 +11,10 @@ function App() {
   const[cartItems, setCartItems] = useState([]);
 
   useEffect(()=>{
-    fetch("https://dummyjson.com/carts/1")
+    fetch("http://localhost:3000/api/cart-items?expand=product")
           .then((response) => response.json())
           .then((data) => {
-            setCartItems(data.products);
+            setCartItems(data);
           });
   }, []);
   return (
