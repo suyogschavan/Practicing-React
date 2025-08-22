@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router";
+import axios from 'axios';
 import "./App.css";
 import { HomePage } from "./pages/HomePage";
 import { CheckoutPage } from "./pages/CheckoutPage";
@@ -11,10 +12,9 @@ function App() {
   const[cartItems, setCartItems] = useState([]);
 
   useEffect(()=>{
-    fetch("http://localhost:3000/api/cart-items?expand=product")
-          .then((response) => response.json())
-          .then((data) => {
-            setCartItems(data);
+    axios.get("http://localhost:3000/api/cart-items?expand=product")
+          .then((response) => {
+            setCartItems(response.data);
           });
   }, []);
   return (
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route index element={<HomePage cartItems={cartItems}/>} />
         <Route path="checkout" element={<CheckoutPage cartItems={cartItems} />} />
-        <Route path="orders" element={<OrdersPage />} />
+        <Route path="orders" element={<OrdersPage cartItems={cartItems}/>} />
         <Route path="tracking" element={<TrackingPage />}></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
       </Routes>
