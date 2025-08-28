@@ -8,7 +8,7 @@ export function Product({ product, loadCart }) {
     try {
       await axios.post("http://localhost:3000/api/cart-items", {
         productId: product.id,
-        quantity,
+        quantity:(quantity>1)?quantity:1,
       });
       await loadCart();
     } catch (e) {

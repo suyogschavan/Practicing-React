@@ -7,7 +7,7 @@ import { CheckoutHeader } from "./CheckoutHeader";
 export function CheckoutPage({ cartItems, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState([]);
-
+  const [totalCartItems, setTotalCartItems] = useState(0);
   useEffect(() => {
     const fetchCheckoutData = async () => {
       const resp1 = await axios.get(
@@ -24,13 +24,14 @@ export function CheckoutPage({ cartItems, loadCart }) {
         "http://localhost:3000/api/payment-summary"
       );
       setPaymentSummary(resp2.data);
+      setTotalCartItems(resp2.data.totalItems);
     }
     getPaymentInfo();
   }, [cartItems])
   return (
     <>
       <title>Checkout</title>
-      <CheckoutHeader />
+      <CheckoutHeader totalCartItems={totalCartItems}/>
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
