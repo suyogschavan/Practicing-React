@@ -23,7 +23,7 @@ export function Product({ product, loadCart }) {
   return (
     <div key={product.id} className="product-container">
       <div className="product-image-container">
-        <img className="product-image" src={product.image} />
+        <img className="product-image" src={product.image?product.image:"images/loading-spinner.gif"} />
       </div>
 
       <div className="product-name limit-text-to-2-lines">{product.name}</div>

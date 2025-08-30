@@ -5,8 +5,9 @@ import { HomePage } from "./pages/home/HomePage";
 import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 import { OrdersPage } from "./pages/OrdersPage";
 import { TrackingPage } from "./pages/TrackingPage";
-import { NotFoundPage } from "./pages/NotFoundPage";
+
 import { useEffect, useState } from "react";
+import { NotFoundPage } from "./pages/error/NotFoundPage";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -29,7 +30,7 @@ function App() {
         />
         <Route path="orders" element={<OrdersPage cartItems={cartItems} />} />
         <Route path="tracking" element={<TrackingPage />}></Route>
-        <Route path="*" element={<NotFoundPage />}></Route>
+        <Route path="*" element={<NotFoundPage cartItems={cartItems} />}></Route>
       </Routes>
     </>
   );

@@ -1,0 +1,6 @@
+.loading-product-container{
+    filter: blur(3px);
+}
+.product-image1{
+    width: 200px;
+}
