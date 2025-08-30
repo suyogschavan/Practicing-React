@@ -13,7 +13,17 @@
   right: 0;
   z-index: 1000;
 }
-
+.hehe-white-text{
+  padding: 10px 10px;
+  /* margin: 10px 10px; */
+  text-align: center;
+  font-size: xx-large;
+  color: black;
+  /* font: icon; */
+  font-weight: bolder;
+  padding-bottom: 20px;
+  text-decoration: none;
+}
 .checkout-header .header-content {
   width: 100%;
   max-width: 1100px;

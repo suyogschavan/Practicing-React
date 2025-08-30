@@ -7,8 +7,9 @@ export function CheckoutHeader({totalCartItems}) {
       <div className="header-content">
         <div className="checkout-header-left-section">
           <a href="/">
-            <img className="logo" src="images/logo.png" />
-            <img className="mobile-logo" src="images/mobile-logo.png" />
+            {/* <img className="logo" src="images/logo.png" /> */}
+            <span className='hehe-white-text'>Hehe</span>
+            {/* <img className="mobile-logo" src="images/mobile-logo.png" /> */}
           </a>
         </div>
 

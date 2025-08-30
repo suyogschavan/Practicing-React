@@ -4,12 +4,17 @@ import { useState } from "react";
 
 export function Product({ product, loadCart }) {
   const [quantity, setQuantity] = useState();
+  const [added, setAdded] = useState(false);
+  setTimeout(() => {
+    setAdded(false)
+  }, 2000);
   const addToCart = async () => {
     try {
       await axios.post("https://ecomm-backend-dm33.onrender.com/api/cart-items", {
         productId: product.id,
         quantity:(quantity>1)?quantity:1,
       });
+      setAdded(true);
       await loadCart();
     } catch (e) {
       console.log("Backend is not running ig -> ", e);
@@ -60,7 +65,7 @@ export function Product({ product, loadCart }) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart">
+      <div className="added-to-cart" style={{opacity: added?1:0}}>
         <img src="images/icons/checkmark.png" />
         Added
       </div>
