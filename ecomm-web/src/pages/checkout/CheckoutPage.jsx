@@ -11,7 +11,7 @@ export function CheckoutPage({ cartItems, loadCart }) {
   useEffect(() => {
     const fetchCheckoutData = async () => {
       const resp1 = await axios.get(
-        "http://localhost:3000/api/delivery-options?expand=estimatedDeliveryTime"
+        "https://ecomm-backend-dm33.onrender.com/api/delivery-options?expand=estimatedDeliveryTime"
       );
       setDeliveryOptions(resp1.data);
     };
@@ -21,7 +21,7 @@ export function CheckoutPage({ cartItems, loadCart }) {
   useEffect(()=>{
     const getPaymentInfo = async ()=>{
       const resp2 = await axios.get(
-        "http://localhost:3000/api/payment-summary"
+        "https://ecomm-backend-dm33.onrender.com/api/payment-summary"
       );
       setPaymentSummary(resp2.data);
       setTotalCartItems(resp2.data.totalItems);

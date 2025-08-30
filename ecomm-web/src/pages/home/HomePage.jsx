@@ -8,7 +8,7 @@ export function HomePage({cartItems, loadCart}) {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const getData=async ()=>{
-      const response = await axios.get("http://localhost:3000/api/products");
+      const response = await axios.get("https://ecomm-backend-dm33.onrender.com/api/products");
       setProducts(response.data);
     }
     getData();

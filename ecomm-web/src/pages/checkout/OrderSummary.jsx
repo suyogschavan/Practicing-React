@@ -40,7 +40,7 @@ export function OrderSummary({ cartItems, deliveryOptions, loadCart }) {
                         Update
                       </span>
                       <span className="delete-quantity-link link-primary" onClick={async ()=>{
-                        const res = await axios.delete(`http://localhost:3000/api/cart-items/${item.productId}`)
+                        const res = await axios.delete(`https://ecomm-backend-dm33.onrender.com/api/cart-items/${item.productId}`)
                         console.log(res.status);
                         await loadCart();
                       }}>

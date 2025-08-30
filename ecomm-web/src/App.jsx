@@ -12,7 +12,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const loadCart = async () => {
     const reponse = await axios.get(
-      "http://localhost:3000/api/cart-items?expand=product"
+      "https://ecomm-backend-dm33.onrender.com/api/cart-items?expand=product"
     );
     setCartItems(reponse.data);
   };

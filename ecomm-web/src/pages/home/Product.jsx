@@ -6,7 +6,7 @@ export function Product({ product, loadCart }) {
   const [quantity, setQuantity] = useState();
   const addToCart = async () => {
     try {
-      await axios.post("http://localhost:3000/api/cart-items", {
+      await axios.post("https://ecomm-backend-dm33.onrender.com/api/cart-items", {
         productId: product.id,
         quantity:(quantity>1)?quantity:1,
       });

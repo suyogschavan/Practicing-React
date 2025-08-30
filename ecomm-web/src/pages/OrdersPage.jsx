@@ -9,7 +9,7 @@ export function OrdersPage({ cartItems }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/orders?expand=products")
+      .get("https://ecomm-backend-dm33.onrender.com/api/orders?expand=products")
       .then((response) => {
         console.log(response);
         setOrders(response.data);
